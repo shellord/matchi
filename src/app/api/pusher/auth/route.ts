@@ -1,6 +1,5 @@
 import { pusherServer } from "@/lib/pusher";
 import { User } from "@/types/common";
-import { nanoid } from "nanoid";
 
 export async function POST(req: Request) {
   const data = await req.text();
@@ -8,7 +7,9 @@ export async function POST(req: Request) {
     .split("&")
     .map((str) => str.split("=")[1]);
 
-  const id = nanoid();
+  const id =
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15);
 
   type PresenceData = {
     user_id: string;
