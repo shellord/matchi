@@ -43,7 +43,7 @@ const Game: React.FC<Props> = ({ roomId, dimension, grid }) => {
               isCurrentPlayer={user.user_id === me?.id}
               onClickReady={() => handleUserReady(user.user_id)}
               score={user.score}
-              isWin={user.score === dimension}
+              isWin={user.score === (dimension * dimension) / 2}
             />
           </li>
         ))}
