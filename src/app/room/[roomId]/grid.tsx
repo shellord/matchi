@@ -6,6 +6,7 @@ import clsx from "clsx";
 type TGrid = {
   dimension: number;
   grid: number[][];
+  onMatch: (count: number) => void;
 };
 
 type TCard = {
@@ -33,7 +34,7 @@ const Card: React.FC<TCard> = ({ value, onFlip, isFlipped }) => {
   );
 };
 
-const Grid: React.FC<TGrid> = ({ dimension = 4, grid }) => {
+const Grid: React.FC<TGrid> = ({ dimension = 4, grid, onMatch }) => {
   const [matchedItems, setMatchedItems] = React.useState<number[]>([]);
   const [flippedItems, setFlippedItems] = React.useState<number[]>([]);
   const [isDisableClick, setIsDisableClick] = React.useState(false);
@@ -63,6 +64,7 @@ const Grid: React.FC<TGrid> = ({ dimension = 4, grid }) => {
       setTimeout(() => {
         if (isMatch) {
           setMatchedItems((prev) => [...prev, firstIndex, index]);
+          onMatch(matchedItems.length / 2 + 1);
         }
 
         setFlippedItems([]);
@@ -71,12 +73,8 @@ const Grid: React.FC<TGrid> = ({ dimension = 4, grid }) => {
     }
   };
 
-  if (gameWon) {
-    return <div className="text-4xl text-center">You won!</div>;
-  }
-
   return (
-    <div className="flex h-2/3">
+    <section className="flex flex-1">
       {grid.map((row, rowIndex) => {
         return (
           <div className="flex flex-1 flex-col" key={rowIndex}>
@@ -85,7 +83,7 @@ const Grid: React.FC<TGrid> = ({ dimension = 4, grid }) => {
               return (
                 <Card
                   value={value}
-                  key={colIndex}
+                  key={itemIndex}
                   onFlip={() => onFlipCard(itemIndex)}
                   isFlipped={visibleItems.includes(itemIndex)}
                 />
@@ -94,7 +92,7 @@ const Grid: React.FC<TGrid> = ({ dimension = 4, grid }) => {
           </div>
         );
       })}
-    </div>
+    </section>
   );
 };
 
