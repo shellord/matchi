@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
   const presenceData: PresenceData = {
     user_id: id,
-    user_info: { user_id: id, name: "John Doe", isReady: false, matches: 0 },
+    user_info: { user_id: id, name: "John Doe", isReady: false, score: 0 },
   };
 
   const auth = pusherServer.authorizeChannel(
