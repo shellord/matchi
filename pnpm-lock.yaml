@@ -10,6 +10,7 @@ specifiers:
   encoding: ^0.1.13
   eslint: 8.34.0
   eslint-config-next: 13.2.1
+  husky: ^8.0.3
   next: 13.2.1
   postcss: ^8.4.21
   pusher: ^5.1.2
@@ -29,6 +30,7 @@ dependencies:
   encoding: 0.1.13
   eslint: 8.34.0
   eslint-config-next: 13.2.1_7kw3g6rralp5ps6mg3uyzz6azm
+  husky: 8.0.3
   next: 13.2.1_biqbaboplfbrettd7655fr4n2y
   pusher: 5.1.2_encoding@0.1.13
   pusher-js: 8.0.1
@@ -1502,6 +1504,12 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: false
 
   /iconv-lite/0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}

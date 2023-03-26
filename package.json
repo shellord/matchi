@@ -17,6 +17,7 @@
     "encoding": "^0.1.13",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
+    "husky": "^8.0.3",
     "next": "13.2.1",
     "pusher": "^5.1.2",
     "pusher-js": "^8.0.1",

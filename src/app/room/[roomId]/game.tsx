@@ -31,7 +31,7 @@ const Game: React.FC<Props> = ({ roomId, dimension, grid }) => {
         )}
       </div>
       <div className="mt-10" />
-      <p>Members</p>
+      <p>Players</p>
       <hr />
       <ul className="h-56 overflow-auto">
         {users.map((user) => (
