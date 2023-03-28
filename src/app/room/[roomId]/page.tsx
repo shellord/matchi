@@ -19,7 +19,7 @@ const Room = async ({
   const redisData = (await client.get(roomId)) as string;
 
   if (!redisData) {
-    const { dimension: dim, grid: g } = generateGame(5);
+    const { dimension: dim, grid: g } = generateGame(4);
     dimension = dim;
     grid = g;
     await client.set(roomId, JSON.stringify({ dimension, grid }));
