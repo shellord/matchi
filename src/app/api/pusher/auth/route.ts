@@ -18,7 +18,12 @@ export async function POST(req: Request) {
 
   const presenceData: PresenceData = {
     user_id: id,
-    user_info: { user_id: id, name: "John Doe", isReady: false, score: 0 },
+    user_info: {
+      user_id: id,
+      name: `Player ${Math.floor(Math.random() * 5000) + 5000}`,
+      isReady: false,
+      score: 0,
+    },
   };
 
   const auth = pusherServer.authorizeChannel(
@@ -29,3 +34,5 @@ export async function POST(req: Request) {
 
   return new Response(JSON.stringify(auth));
 }
+
+// randome number between 5000  and 10000
