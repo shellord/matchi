@@ -16,7 +16,7 @@ const Room = async ({
     await client.connect();
   }
 
-  const redisData = (await client.get(roomId)) as string;
+  const redisData = await client.get(roomId);
 
   if (!redisData) {
     const { dimension: dim, grid: g } = generateGame(4);
