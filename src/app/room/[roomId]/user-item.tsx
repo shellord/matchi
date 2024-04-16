@@ -8,6 +8,7 @@ type Props = {
   onClickReady: () => void;
   score: number;
   isWin: boolean;
+  rank: number;
 };
 
 const UserItem: React.FC<Props> = ({
@@ -17,6 +18,7 @@ const UserItem: React.FC<Props> = ({
   onClickReady,
   score,
   isWin,
+  rank,
 }) => {
   console.log(name, isCurrentPlayer, isReady);
   return (
@@ -28,7 +30,8 @@ const UserItem: React.FC<Props> = ({
         <Button onClick={onClickReady}>Ready</Button>
       )}
       <p>Score: {score}</p>
-      {isWin && <p className="text-green-500">Win</p>}
+      {isWin && <p className="text-green-500">Solved</p>}
+      {rank && <p className="text-green-500">#{rank}</p>}
     </div>
   );
 };
