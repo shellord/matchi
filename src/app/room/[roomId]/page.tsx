@@ -20,7 +20,6 @@ const Room = async ({
     grid = g;
     await kv.set(roomId, JSON.stringify({ dimension, grid }));
   } else {
-    console.log(redisData);
     const { dimension: dim, grid: g } = redisData as {
       dimension: number;
       grid: number[][];

@@ -20,7 +20,6 @@ const UserItem: React.FC<Props> = ({
   isWin,
   rank,
 }) => {
-  console.log(name, isCurrentPlayer, isReady);
   return (
     <div className="bg-slate-800 p-1 flex items-center gap-5 text-sm h-10">
       <p>{name}</p>

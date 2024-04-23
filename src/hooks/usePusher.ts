@@ -34,7 +34,6 @@ const usePusher = (roomId: string) => {
       (members: PresenceChannel["members"]) => {
         const connectedUsers: User[] = [];
         for (const socketId in members.members) {
-          console.log(members.members[socketId]);
           connectedUsers.push(members.members[socketId]);
         }
         setUsers(connectedUsers);
