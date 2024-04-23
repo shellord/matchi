@@ -5,6 +5,7 @@ import Grid from "./grid";
 import { TGrid } from "@/types/common";
 import usePusher from "@/hooks/usePusher";
 import UserItem from "./user-item";
+import { FaCopy } from "react-icons/fa";
 
 type Props = {
   roomId: string;
@@ -32,14 +33,26 @@ const Game: React.FC<Props> = ({ roomId, dimension, grid }) => {
     }
   }, [users, userRanks]);
 
+  const copyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+  };
+
   return (
     <div className="flex flex-1 flex-col h-full w-full">
       <div className="w-full flex flex-1">
         {isAllReady ? (
           <Grid dimension={dimension} grid={grid} onMatch={onMatch} />
         ) : (
-          <div className="flex flex-1 justify-center items-center">
-            Waiting for other players to be ready...
+          <div className="flex flex-1 flex-col justify-center items-center">
+            <p>Waiting for other players to be ready...</p>
+            <div className="ml-2 flex mt-5">
+              <div className="bg-primary p-2 rounded-sm">
+                <p>Room ID: {roomId}</p>
+              </div>
+              <button className="ml-1 mt-1 cursor-pointer" onClick={copyLink}>
+                <FaCopy size={18} />
+              </button>
+            </div>
           </div>
         )}
       </div>
